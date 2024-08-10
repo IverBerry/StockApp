@@ -1,0 +1,62 @@
+﻿@model List<StockApp.Models.Products.ProductViewModel>;
+
+@{
+	ViewData["Title"] = "Mantenimiento de productos";
+}
+
+<div style="height:100%">
+	<div class="row mb-2">
+		<div class="col-9">
+			<h2 class="float-start">Mantenimiento de productos</h2>
+
+		</div>
+		<div class="col-3 ">
+
+			<a asp-controller="Product" asp-action="Create" class="btn btn-outline-success float-end">Agregar nuevo producto</a>
+
+
+		</div>
+
+
+	</div>
+
+	<div class="container mt-4 shadow-lg p3 mb-5  rounded">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>NOMBRE</th>
+					<th>MARCA</th>
+					<th>CATEGORIA</th>
+					<th>PRECIO</th>
+					<th>STOCK</th>
+					<th></th>
+
+				</tr>
+
+			</thead>
+			<tbody>
+				@if(Model!=null && Model.Count > 0)
+				{
+					@foreach (var product in Model)
+					{
+						<tr>
+							<td>@product.Id</td>
+							<td>@product.Name</td>
+							<td>@product.Brand</td>
+							<td>@product.Category</td>
+							<td>@product.Price</td>
+							<td>@product.Stock</td>
+
+						</tr>
+
+					}
+				}
+				
+
+			</tbody>
+
+		</table>
+	</div>
+</div>
+

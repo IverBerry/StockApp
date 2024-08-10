@@ -1,0 +1,60 @@
+﻿@model StockApp.Models.Users.LoginUserViewModel;
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-4 offset-4">
+            <div class="card">
+                <div class="card-header bg-black text-light">
+                    <h4>Iniciar Sesion</h4>
+
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-controller="Home" asp-action="Index">
+
+                        @if (Model.HasError)
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <p>@Model.Error</p>
+                                <buttom type="buttom" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> </buttom>
+                            </div>
+                        }
+
+
+
+                        <div class="mb-2">
+                            <label asp-for="UserName" class="form-label">Nombre de usuario: </label>
+                            <input asp-for="UserName" class="form-control" placeholder="Ingrese el nombre de usuario" />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-2">
+                            <label asp-for="Password" class="form-label">Contraseña: </label>
+                            <input asp-for="Password" class="form-control" placeholder="Ingrese la contraseña" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="mt-4 text-center">
+
+                            <button type="submit" class="btn btn-primary  w-100">Iniciar Sesion</button>
+                            <hr></hr>
+                            <div>
+                                <a asp-controller="Home" asp-action="Register" class="d-inline-block mb-2">No tienes cuenta? Regístrate!</a>
+                            </div>
+                            
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
